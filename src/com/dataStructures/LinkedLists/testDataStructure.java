@@ -1,4 +1,4 @@
-package com.dataStructures.LinkedLists;
+package src.com.dataStructures.LinkedLists;
 
 import java.util.Scanner;
 

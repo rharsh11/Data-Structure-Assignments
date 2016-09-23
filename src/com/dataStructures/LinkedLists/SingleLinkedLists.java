@@ -1,4 +1,4 @@
-package com.dataStructures.LinkedLists;
+package src.com.dataStructures.LinkedLists;
 
 /**
  * This is the Single Linked List Implementation. Following functions have been added :

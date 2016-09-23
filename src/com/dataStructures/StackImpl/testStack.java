@@ -1,4 +1,4 @@
-package com.dataStructures.StackImpl;
+package src.com.dataStructures.StackImpl;
 
 import java.util.Scanner;
 

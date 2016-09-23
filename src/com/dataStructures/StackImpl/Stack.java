@@ -1,6 +1,6 @@
-package com.dataStructures.StackImpl;
+package src.com.dataStructures.StackImpl;
 
-import com.dataStructures.LinkedLists.SingleLinkedLists;
+import src.com.dataStructures.LinkedLists.SingleLinkedLists;
 
 /**
  * This Stack will be using linked list. Hence no StackOverflow.
