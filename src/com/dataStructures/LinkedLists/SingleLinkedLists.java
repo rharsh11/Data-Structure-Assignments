@@ -215,6 +215,41 @@ public class SingleLinkedLists <T>{
 	}
 	
 	/**
+	 * Deletes the node at a given index
+	 * */
+	public boolean deleteAtIndex(int position){
+		
+		int count = 1;
+		Node<T> temp = head;
+		Node<T> prevTemp = head;
+		
+		if(head !=null)
+		{
+			while(count != position && temp != null)
+			{
+				count++;
+				prevTemp = temp;
+				temp = temp.getNext();
+			}
+			if(temp == null)
+				return false;
+			else{
+				if(temp == head)
+				{
+					head = head.getNext();
+				}
+				else
+				{
+					prevTemp.setNext(temp.getNext());
+				}
+				return true;
+			}
+		}
+		else
+			return false;
+	}
+	
+	/**
 	 * Returns if the list contains the data mentioned
 	 * */
 	public boolean contains(T data){
@@ -244,5 +279,58 @@ public class SingleLinkedLists <T>{
 			temp = temp.getNext();
 		}
 		System.out.println();
+	}
+	
+	/**
+	 * Search Recursively
+	 * */
+	public boolean searchRecursively(T searchData, Node<T> temp)
+	{
+		if(temp == null)
+			return false;
+		else{
+			if(temp.getData().equals(searchData))
+				return true;
+			else
+				return searchRecursively(searchData, temp.getNext());
+		}
+	}
+	
+	/**
+	 * Get Head Node
+	 * */
+	public Node<T> getHeadNode()
+	{
+		return head;
+	}
+	
+	/**
+	 * Counts the number of nodes in the linked list
+	 * */
+	public int getCount(int mode)
+	{
+		if(mode == Constants.Iterative)
+			return countIter();
+		else if(mode == Constants.Recursive)
+			return countRecur(head);
+		else
+			return -1;
+	}
+	private int countIter()
+	{
+		int count = 0;
+		Node<T> temp = head;
+		while(temp != null)
+		{
+			count++;
+			temp = temp.getNext();
+		}
+		return count;
+	}
+	private int countRecur(Node<T> temp)
+	{
+		if(temp == null)
+			return 0;
+		else return 1 + countRecur(temp.getNext());
 	}
 }
