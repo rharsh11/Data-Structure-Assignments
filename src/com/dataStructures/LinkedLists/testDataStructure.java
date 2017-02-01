@@ -8,7 +8,8 @@ public class testDataStructure {
 		
 		String message = "Enter 1: add(T data)\t2 : addAfter(T after, T data)\t3: addBefore(T before, T data)\t" +
 				"4: addAtHead(T data)\n5: getHeadData()\t6: getTailData()\t7: delete(T data)\t" +
-				"8: deleteHead()\n9: deleteTail()\t10: contains(T data)\t11: printList()\t12: Exit";
+				"8: deleteHead()\n9: deleteTail()\t10: Delete At Index\t11: contains(T data)\t12: printList()\t13: " +
+				"Get Count\t14: Search Recursively\t15: Exit";
 		String newDataMessage = "Enter New Data : ";
 		String data = "";
 		String temp = "";
@@ -19,7 +20,7 @@ public class testDataStructure {
 		
 		SingleLinkedLists<String> list = new SingleLinkedLists<String>();
 		
-		while(choice != 12){
+		while(choice != 15){
 		switch(choice){
 		case 1:
 			System.out.print(newDataMessage);
@@ -63,14 +64,27 @@ public class testDataStructure {
 			System.out.println("Element : "+list.deleteTail());
 			break;
 		case 10:
+			System.out.println("Enter Index to Delete");
+			data = sc.nextLine();
+			System.out.println("Element Deleted : "+list.deleteAtIndex(Integer.parseInt(data)));
+			break;
+		case 11:
 			System.out.print("Enter Data to Search : ");
 			data = sc.nextLine();
 			System.out.println("Success : "+list.contains(data));
 			break;
-		case 11:
+		case 12:
 			list.printList();
 			break;
-		case 12:
+		case 13:
+			System.out.println("Enter Mode 1-Iter 2-Recursive");
+			data=sc.nextLine();
+			System.out.println("Count : "+list.getCount(Integer.parseInt(data)));
+		case 14:
+			System.out.println("Enter Data to Search");
+			data=sc.nextLine();
+			System.out.println(list.searchRecursively(data,list.getHeadNode()));
+		case 15:
 			break;
 		default:
 			System.out.println("Incorrect Option");
